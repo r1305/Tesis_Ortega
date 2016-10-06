@@ -6,16 +6,12 @@
         android:title="Principal"/>
 
     <item
-        android:id="@+id/retos"
-        android:title="Retos"/>
+        android:id="@+id/trofeos"
+        android:title="Trofeos"/>
 
     <item
         android:id="@+id/progress"
         android:title="Progreso"
-        app:rippleColor="#00BCD5" />
-    <item
-        android:id="@+id/estad"
-        android:title="Estadisticas"
         app:rippleColor="#00BCD5" />
 
     <item

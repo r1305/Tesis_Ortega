@@ -1,9 +1,10 @@
 package com.ulima.tesis_ortega;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -63,37 +64,45 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         actionBarDrawerToggle.syncState();
 
         nav.setNavigationItemSelectedListener(this);
+
+        FragmentManager fm=getSupportFragmentManager();
+        FragmentTransaction ft=fm.beginTransaction();
+
+        Fragment tabs=TabsFragment.newInstance();
+        ft.replace(R.id.frame,tabs);
+        ft.commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentManager fm=getSupportFragmentManager();
+        FragmentTransaction ft=fm.beginTransaction();
         switch(item.getItemId()){
             case R.id.logout:
                 //session.logoutUser();
                 //LoginManager.getInstance().logOut();
                 return true;
-            case R.id.retos:
-                Fragment reco=RetosFragment.newInstance();
-                ft.replace(R.id.frame,reco);
-                toolbar.setTitle("Retos");
+            case R.id.trofeos:
+                //Fragment reco=RetosFragment.newInstance();
+                //ft.replace(R.id.frame,reco);
+                toolbar.setTitle("Trofeos");
                 ft.commit();
                 dl.closeDrawers();
                 Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.principal:
-                //Fragment perfil=ProfileFragment.newInstance(datos);
-                //ft.replace(R.id.frame,perfil);
-                toolbar.setTitle("Perfil");
-                //ft.commit();
+                Fragment details=TabsFragment.newInstance();
+                ft.replace(R.id.frame,details);
+                ft.commit();
+                toolbar.setTitle("Inicio");
                 dl.closeDrawers();
                 Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.estad:
-                //Fragment libros=ActivitiesFragment.newInstance();
-                //ft.replace(R.id.frame,libros);
+            case R.id.progress:
+                Fragment progess=ProgressFragment.newInstance();
+                ft.replace(R.id.frame,progess);
                 toolbar.setTitle("Estadisticas");
-                //ft.commit();
+                ft.commit();
                 dl.closeDrawers();
                 Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;

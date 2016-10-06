@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,7 +10,8 @@
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:gravity="center">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -42,6 +44,12 @@
                 android:inputType="textCapWords" />
 
         </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign_sexo"
+            android:gravity="center"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -137,15 +145,35 @@
 
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/sign_btn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@android:color/holo_orange_dark"
-            android:src="@android:drawable/ic_menu_save"
-            android:text="Guardar" />
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/sign_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:src="@android:drawable/ic_menu_save"
+                android:text="Guardar"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/sign_limpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:src="@android:drawable/ic_menu_save"
+                android:text="Limpiar"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 </ScrollView>

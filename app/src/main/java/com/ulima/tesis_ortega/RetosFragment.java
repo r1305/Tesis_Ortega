@@ -1,8 +1,9 @@
 package com.ulima.tesis_ortega;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class RetosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_retos, container, false);
+        l.clear();
         reto=(RecyclerView)v.findViewById(R.id.recycler_view_reto);
         reto.setLayoutManager(new LinearLayoutManager(getActivity()));
         JSONObject o=new JSONObject();
@@ -66,10 +68,14 @@ public class RetosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 JSONObject o=(JSONObject)view.getTag();
-                FragmentTransaction ft=getFragmentManager().beginTransaction();
+                FragmentManager fm=getFragmentManager();
+                FragmentTransaction ft=fm.beginTransaction();
+
                 Fragment details=RetoDetailFragment.newInstance(o.toString());
                 ft.replace(R.id.frame,details);
                 ft.commit();
+                //ft.replace(R.id.frame,details);
+                //ft.commit();
             }
         });
         return v;

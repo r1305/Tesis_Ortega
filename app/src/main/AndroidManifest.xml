@@ -15,13 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AndroidActivity" />
-        <activity android:name=".WindowsActivity" />
-        <activity android:name=".BlackBerryActivity" />
-        <activity android:name=".AppleActivity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>
