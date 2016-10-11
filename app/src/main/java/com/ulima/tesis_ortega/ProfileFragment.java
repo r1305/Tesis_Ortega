@@ -1,14 +1,13 @@
 package com.ulima.tesis_ortega;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -17,6 +16,7 @@ public class ProfileFragment extends Fragment {
 
     TextView nivel;
     EditText peso,talla,imc;
+    private ProgressBar progressBar;
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -31,22 +31,22 @@ public class ProfileFragment extends Fragment {
     }
 
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
+        /*Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        fragment.setArguments(args);*/
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
     }
 
     @Override
@@ -58,6 +58,10 @@ public class ProfileFragment extends Fragment {
         peso=(EditText)v.findViewById(R.id.profile_peso);
         talla=(EditText)v.findViewById(R.id.profile_talla);
         imc=(EditText)v.findViewById(R.id.profile_imc);
+        progressBar=(ProgressBar)v.findViewById(R.id.progreso);
+        progressBar.setMax(100);
+        progressBar.setProgress(75);
+
         peso.setTextColor(Color.BLACK);
         talla.setTextColor(Color.BLACK);
         imc.setTextColor(Color.BLACK);

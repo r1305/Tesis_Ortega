@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="Nombre:"
+                android:hint="Nombres:"
                 android:inputType="textCapWords"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="Apellido:"
+                android:hint="Apellidos:"
                 android:inputType="textCapWords" />
 
         </android.support.design.widget.TextInputLayout>
@@ -149,7 +149,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            >
 
             <Button
                 android:id="@+id/sign_btn"

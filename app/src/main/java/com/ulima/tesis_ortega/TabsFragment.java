@@ -25,10 +25,10 @@ public class TabsFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static TabsFragment newInstance() {
         TabsFragment fragment = new TabsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, "");
-        args.putString(ARG_PARAM2, "");
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, "");
+//        args.putString(ARG_PARAM2, "");
+//        fragment.setArguments(args);
         return fragment;
     }
 
@@ -36,10 +36,10 @@ public class TabsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
     }
 
     @Override
@@ -48,12 +48,12 @@ public class TabsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_tabs, container, false);
         tabHost= (FragmentTabHost) v.findViewById(android.R.id.tabhost);
-        tabHost.setup(getActivity(),getActivity().getSupportFragmentManager(),android.R.id.tabcontent);
+        tabHost.setup(getActivity(),getFragmentManager(),android.R.id.tabcontent);
         tabHost.addTab(tabHost.newTabSpec("tab1").setIndicator("Perfil"),
                 ProfileFragment.class, null);
         tabHost.addTab(tabHost.newTabSpec("tab2").setIndicator("Retos"),
                 RetosFragment.class, null);
-        tabHost.setCurrentTab(0);
+        //tabHost.setCurrentTab(0);
         return v;
     }
 

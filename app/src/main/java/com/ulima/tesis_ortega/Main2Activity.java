@@ -28,11 +28,11 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        toolbar=(Toolbar)findViewById(R.id.toolbar);
-        nav=(NavigationView)findViewById(R.id.navigation);
-        dl=(DrawerLayout)findViewById(R.id.drawer_layout);
-        View v=nav.getHeaderView(0);
-        txt_nav=(TextView)v.findViewById(R.id.txt_nav_header);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        nav = (NavigationView) findViewById(R.id.navigation);
+        dl = (DrawerLayout) findViewById(R.id.drawer_layout);
+        View v = nav.getHeaderView(0);
+        txt_nav = (TextView) v.findViewById(R.id.txt_nav_header);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,12 +49,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             }
         });
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,dl,toolbar,R.string.openDrawer,
-                R.string.closeDrawer){
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, dl, toolbar, R.string.openDrawer,
+                R.string.closeDrawer) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
             }
+
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -65,46 +66,68 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
         nav.setNavigationItemSelectedListener(this);
 
-        FragmentManager fm=getSupportFragmentManager();
-        FragmentTransaction ft=fm.beginTransaction();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
 
-        Fragment tabs=TabsFragment.newInstance();
-        ft.replace(R.id.frame,tabs);
+        Fragment tabs = TabsFragment.newInstance();
+        ft.replace(R.id.frame, tabs);
         ft.commit();
+        fm.executePendingTransactions();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        FragmentManager fm=getSupportFragmentManager();
-        FragmentTransaction ft=fm.beginTransaction();
-        switch(item.getItemId()){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft;
+        switch (item.getItemId()) {
             case R.id.logout:
                 //session.logoutUser();
                 //LoginManager.getInstance().logOut();
                 return true;
             case R.id.trofeos:
                 //Fragment reco=RetosFragment.newInstance();
+                //FragmentTransaction ft=fm.beginTransaction();
                 //ft.replace(R.id.frame,reco);
                 toolbar.setTitle("Trofeos");
-                ft.commit();
+                //ft.commit();
                 dl.closeDrawers();
                 Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.principal:
-                Fragment details=TabsFragment.newInstance();
-                ft.replace(R.id.frame,details);
+                Fragment details = ProfileFragment.newInstance();
+                ft = fm.beginTransaction();
+
+                ft.replace(R.id.frame, details);
+                //ft.commit();
                 ft.commit();
+                fm.executePendingTransactions();
+//                ft.remove(details);
                 toolbar.setTitle("Inicio");
                 dl.closeDrawers();
-                Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.retos:
+                Fragment retos = RetosFragment.newInstance();
+                ft = fm.beginTransaction();
+
+                ft.replace(R.id.frame, retos);
+                //ft.commit();
+                ft.commit();
+                fm.executePendingTransactions();
+//                ft.remove(details);
+                toolbar.setTitle("Inicio");
+                dl.closeDrawers();
+                //Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.progress:
-                Fragment progess=ProgressFragment.newInstance();
-                ft.replace(R.id.frame,progess);
+                Fragment progess = ProgressFragment.newInstance();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.frame, progess);
                 toolbar.setTitle("Estadisticas");
                 ft.commit();
+                fm.executePendingTransactions();
                 dl.closeDrawers();
-                Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

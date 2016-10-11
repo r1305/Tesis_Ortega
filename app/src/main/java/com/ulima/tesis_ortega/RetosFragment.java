@@ -49,16 +49,22 @@ public class RetosFragment extends Fragment {
         reto=(RecyclerView)v.findViewById(R.id.recycler_view_reto);
         reto.setLayoutManager(new LinearLayoutManager(getActivity()));
         JSONObject o=new JSONObject();
-        o.put("actividad","Correr");
-        o.put("tiempo","10min");
+        o.put("actividad","Caminar");
+        o.put("tiempo","30min");
+        o.put("foto","http://res.cloudinary.com/dsdrbqoex/image/upload/v1476147191/caminar_me9odf.jpg");
+        o.put("desc","Cuando uno camina transporta el peso de su cuerpo a una distancia determinada. Se convierte en un ejercicio de entrenamiento cuando se hace a suficiente velocidad y fuerza");
         l.add(o);
         JSONObject o1=new JSONObject();
-        o1.put("actividad","Pesas");
-        o1.put("tiempo","3 x 10");
+        o1.put("actividad","Subir las escaleras");
+        o1.put("tiempo","15min");
+        o1.put("foto","http://res.cloudinary.com/dsdrbqoex/image/upload/v1476147190/escaleras_kdn8qq.jpg");
+        o1.put("desc","Subir escaleras es un muy buen ejercicio. Se recomienda subir 3 tramos sin detenerse en 30 segundos escalones por vez si es posible. Hacer esto 9 ó 10 veces por día es un ");
         l.add(o1);
         JSONObject o2=new JSONObject();
-        o2.put("actividad","Correr");
-        o2.put("tiempo","1 Km");
+        o2.put("actividad","Trotar");
+        o2.put("tiempo","30min");
+        o2.put("foto","http://res.cloudinary.com/dsdrbqoex/image/upload/v1476147191/trote_b7ulqd.jpg");
+        o2.put("desc","El trote se refiere a un tipo de carrera lenta que mejora aptitudes físicas");
         l.add(o2);
         adapter=new RetosRecyclerAdapter(l);
 
@@ -74,6 +80,7 @@ public class RetosFragment extends Fragment {
                 Fragment details=RetoDetailFragment.newInstance(o.toString());
                 ft.replace(R.id.frame,details);
                 ft.commit();
+                fm.executePendingTransactions();
                 //ft.replace(R.id.frame,details);
                 //ft.commit();
             }

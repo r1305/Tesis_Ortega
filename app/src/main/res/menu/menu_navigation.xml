@@ -6,6 +6,12 @@
         android:title="Principal"/>
 
     <item
+        android:id="@+id/retos"
+        android:title="Retos"
+        app:rippleColor="#00BCD5" />
+
+
+    <item
         android:id="@+id/trofeos"
         android:title="Trofeos"/>
 

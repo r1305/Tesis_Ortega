@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -17,8 +20,9 @@ import org.json.simple.parser.JSONParser;
 public class RetoDetailFragment extends Fragment {
 
     private String mParam1;
-    TextView chrono,act,tiempo;
+    TextView chrono,act,tiempo,desc;
     Button btn_start;int mili;
+    ImageView img;
 
 
     public RetoDetailFragment() {
@@ -51,12 +55,17 @@ public class RetoDetailFragment extends Fragment {
         tiempo=(TextView)v.findViewById(R.id.detail_tiempo);
         btn_start=(Button)v.findViewById(R.id.start);
         chrono=(TextView)v.findViewById(R.id.chronos);
+        img=(ImageView)v.findViewById(R.id.detail_img);
+        desc=(TextView)v.findViewById(R.id.detail_desc);
+
 
         try{
             JSONParser p=new JSONParser();
             JSONObject o=(JSONObject)p.parse(mParam1);
             act.setText(o.get("actividad").toString());
             tiempo.setText(o.get("tiempo").toString());
+            desc.setText(o.get("desc").toString());
+            Picasso.with(getActivity()).load(o.get("foto").toString()).into(img);
             String time=o.get("tiempo").toString().substring(0,2);
             mili=Integer.parseInt(time)*60*1000;
 

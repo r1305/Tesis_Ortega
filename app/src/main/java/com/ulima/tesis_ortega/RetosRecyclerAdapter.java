@@ -1,5 +1,9 @@
 package com.ulima.tesis_ortega;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.squareup.picasso.Picasso;
 
 import org.json.simple.JSONObject;
 
@@ -21,6 +27,7 @@ public class RetosRecyclerAdapter extends RecyclerView.Adapter<RetosRecyclerAdap
 
     List<JSONObject> list=new ArrayList<>();
     View.OnClickListener listener;
+    Context c;
 
     public RetosRecyclerAdapter(List<JSONObject> list) {
         this.list = list;
@@ -32,6 +39,7 @@ public class RetosRecyclerAdapter extends RecyclerView.Adapter<RetosRecyclerAdap
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        c=parent.getContext();
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_retos,parent,false));
     }
 
