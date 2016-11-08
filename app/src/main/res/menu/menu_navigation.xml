@@ -21,6 +21,11 @@
         app:rippleColor="#00BCD5" />
 
     <item
+        android:id="@+id/ranking"
+        android:title="Ranking"
+        app:rippleColor="#00BCD5" />
+
+    <item
         android:id="@+id/logout"
         android:title="Salir"
         app:rippleColor="#00BCD5" />

@@ -7,75 +7,36 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile"
+        android:id="@+id/profile_img"
         android:layout_width="180dp"
         android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:src="@drawable/perfil" />
+        android:layout_marginStart="25dp" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:gravity="center"
         android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:text="8 km"
-            android:textColor="#000000"
-            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/nivel"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:text="21 años "
-            android:textColor="#000000"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/sexo"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:text="Mujer"
-            android:textColor="#000000"
-            android:textSize="25dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Nivel 1"
+            android:text="Nivel:"
             android:textColor="#000000"
             android:textSize="25dp" />
 
         <TextView
+            android:id="@+id/puntos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Puntos: 75"
+            android:text="Puntos:"
             android:textColor="#000000"
             android:textSize="25dp" />
 
@@ -98,9 +59,10 @@
             android:progressTint="@android:color/holo_red_light" />
 
         <TextView
+            android:id="@+id/porcentaje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="75%"
+            android:text="%"
             android:textColor="#000000"
             android:textSize="25dp" />
     </LinearLayout>

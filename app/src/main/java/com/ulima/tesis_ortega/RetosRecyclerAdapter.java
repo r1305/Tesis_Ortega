@@ -46,7 +46,7 @@ public class RetosRecyclerAdapter extends RecyclerView.Adapter<RetosRecyclerAdap
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         JSONObject o=list.get(position);
-        holder.act.setText(o.get("actividad").toString());
+        holder.act.setText(o.get("nombre").toString());
         holder.tiempo.setText(o.get("tiempo").toString());
         holder.itemView.setTag(o);
         holder.itemView.setOnClickListener(listener);
