@@ -96,7 +96,7 @@ public class RankingFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String url = "https://tesis-ortega.herokuapp.com/ranking";
         String url2 = "http://192.168.1.14:8080/Tesis_Ortega/ranking";
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url2,
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
