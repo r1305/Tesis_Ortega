@@ -29,6 +29,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.squareup.picasso.Picasso;
 import com.ulima.tesis_ortega.Utils.SessionManager;
 
 import org.json.simple.JSONObject;
@@ -38,12 +39,15 @@ import org.json.simple.parser.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout dl;
     Toolbar toolbar;
     NavigationView nav;
     TextView txt_nav;
+    CircleImageView img;
     SessionManager session;
     private GoogleApiClient client;
 
@@ -72,6 +76,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         dl = (DrawerLayout) findViewById(R.id.drawer_layout);
         View v = nav.getHeaderView(0);
         txt_nav = (TextView) v.findViewById(R.id.txt_nav_header);
+        img=(CircleImageView)v.findViewById(R.id.img_profile_nav);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -201,6 +206,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                             obj = (JSONObject) jp.parse(response);
                             System.out.println(obj);
                             txt_nav.setText(obj.get("nombre").toString());
+                            Picasso.with(Main2Activity.this).load(obj.get("img").toString()).into(img);
                             //pDialog.dismiss();
 
                         } catch (Exception e) {

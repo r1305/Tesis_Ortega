@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                startActivity(i);
 //                RegisterActivity.this.finish();
                 pDialog = new ProgressDialog(RegisterActivity.this);
-                String message = "Buscando...";
+                String message = "Espere un momento...";
 
                 SpannableString ss2 = new SpannableString(message);
                 ss2.setSpan(new RelativeSizeSpan(1f), 0, ss2.length(), 0);
@@ -169,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void registrar(final String nombre,final String email,final String psw,final String peso,final String alt) {
         final RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://tesis-service.herokuapp.com/Registrar";
+        String url = "https://tesis-ortega.herokuapp.com/Registrar";
         String url2="http://192.168.1.14:8080/Tesis_Ortega/Registrar";
 
         // Request a string response from the provided URL.

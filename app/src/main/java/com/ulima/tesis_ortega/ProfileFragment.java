@@ -227,15 +227,7 @@ public class ProfileFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
 
-        builder.setTitle("¡Felicitaciones!")
-//                .setMessage("¡Has alcanzado un nuevo nivel!")
-                .setView(R.layout.layout_win)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
+        builder.setView(R.layout.layout_win);
 
         return builder.create();
     }

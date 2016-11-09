@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
     public void validar(final String u) {
         final RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "http://tesis-ortega.herokuapp.com/validar";
+        String url = "http://tesis-ortega.herokuapp.com/Validar";
         String url2="http://192.168.1.14:8080/Tesis_Ortega/Validar";
         String url3="http://54.227.36.192:8080/Tesis_Ortega/validar";
 

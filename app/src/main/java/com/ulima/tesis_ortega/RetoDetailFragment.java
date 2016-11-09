@@ -1,5 +1,7 @@
 package com.ulima.tesis_ortega;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.util.TimeUnit;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import com.ulima.tesis_ortega.Utils.SessionManager;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +48,7 @@ public class RetoDetailFragment extends Fragment {
     ImageView img;
     SessionManager session;
     String correo,idAct;
+    int puntos;
 
 
     public RetoDetailFragment() {
@@ -93,23 +97,30 @@ public class RetoDetailFragment extends Fragment {
         try{
             o=(JSONObject)p.parse(mParam1);
             //System.out.println(o);
+            puntos=Integer.parseInt(o.get("punt").toString());
+            String time=o.get("tiempo").toString();
+            int t=Integer.parseInt(time);
             idAct=o.get("id").toString();
             act.setText(o.get("nombre").toString());
-            tiempo.setText(o.get("tiempo").toString()+" minuto(s)");
 
-            desc.setText(o.get("descripcion").toString());
-            Picasso.with(getActivity()).load(o.get("imagen").toString()).into(img);
-            String time=o.get("tiempo").toString();
-            mili=Integer.parseInt(time)*60*1000;
-            int t=Integer.parseInt(time);
             if(t==1){
                 tiempo.setText(o.get("tiempo").toString()+" minuto");
             }else{
                 tiempo.setText(o.get("tiempo").toString()+" minutos");
             }
-        }catch (Exception e){
+            //tiempo.setText(o.get("tiempo").toString()+" minuto(s)");
+
+
+            desc.setText(o.get("descripcion").toString());
+            Picasso.with(getActivity()).load(o.get("imagen").toString()).into(img);
+
+            mili=Integer.parseInt(time)*60*1000;
+
+
+        }catch (ParseException e){
             //System.out.println(o);
             //System.out.println(e);
+            System.out.println(e);
         }
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +142,7 @@ public class RetoDetailFragment extends Fragment {
                         btn_start.setEnabled(false);
                         chrono.setText("Bien hecho!");
                         update(correo,idAct);
+                        createDialog(String.valueOf(puntos)).show();
                     }
                 }.start();
             }
@@ -178,6 +190,23 @@ public class RetoDetailFragment extends Fragment {
             }
         };
         queue.add(postRequest);
+    }
+
+    public AlertDialog createDialog(String puntos) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+
+        builder.setTitle("¡Felicitaciones!\n¡Has ganado "+puntos+" puntos!")
+//                .setMessage("¡Has alcanzado un nuevo nivel!")
+                .setView(R.layout.layout_puntos)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+        return builder.create();
     }
 
 

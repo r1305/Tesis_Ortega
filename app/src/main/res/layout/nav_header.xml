@@ -8,17 +8,17 @@
     android:orientation="vertical"
     android:gravity="bottom">
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile"
+        android:id="@+id/img_profile_nav"
         android:layout_width="158dp"
         android:layout_height="180dp"
-        android:src="@drawable/perfil"
+        android:src="@drawable/icon"
         android:layout_gravity="center_horizontal"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Evelin Ortega"
+        android:text="Usuario"
         android:textColor="#FFFFFF"
         android:textSize="28dp"
         android:id="@+id/txt_nav_header"
