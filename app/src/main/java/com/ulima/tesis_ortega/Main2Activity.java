@@ -128,13 +128,15 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 //                Main2Activity.this.finish();
                 return true;
             case R.id.trofeos:
-                //Fragment reco=RetosFragment.newInstance();
-                //FragmentTransaction ft=fm.beginTransaction();
-                //ft.replace(R.id.frame,reco);
-                toolbar.setTitle("Trofeos");
+                Fragment trofeo = TrofeosFragment.newInstance();
+                ft = fm.beginTransaction();
+
+                ft.replace(R.id.frame, trofeo);
+                //ft.addToBackStack(null);
+                ft.commit();
                 //ft.commit();
                 dl.closeDrawers();
-                Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Main2Activity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.principal:
                 Fragment details = ProfileFragment.newInstance();
