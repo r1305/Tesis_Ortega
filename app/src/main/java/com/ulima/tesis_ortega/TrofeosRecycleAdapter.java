@@ -67,7 +67,6 @@ public class TrofeosRecycleAdapter extends RecyclerView.Adapter<TrofeosRecycleAd
         public ViewHolder(View itemView) {
             super(itemView);
             nombre=(TextView)itemView.findViewById(R.id.trofeo_label);
-
             img=(ImageView)itemView.findViewById(R.id.trofeo_img);
 
         }

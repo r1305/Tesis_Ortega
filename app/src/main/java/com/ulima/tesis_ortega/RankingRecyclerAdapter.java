@@ -60,7 +60,7 @@ public class RankingRecyclerAdapter extends RecyclerView.Adapter<RankingRecycler
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.item_ranking_nombre);
             puntos = (TextView) itemView.findViewById(R.id.item_ranking_puntos);
-            img = (ImageView) itemView.findViewById(R.id.item_ranking_img);
+//            img = (ImageView) itemView.findViewById(R.id.item_ranking_img);
 
         }
     }

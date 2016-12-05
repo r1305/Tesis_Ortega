@@ -18,7 +18,6 @@
         <!--<ImageView-->
             <!--android:layout_width="150dp"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/icon"-->
             <!--android:id="@+id/item_ranking_img"/>-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +31,8 @@
             android:textSize="25sp"
             android:text="usuario"
             android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,8 @@
                     android:textSize="22sp"
                     android:text="Puntos: "
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -54,7 +55,8 @@
                     android:textSize="25sp"
                     android:text="usuario"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"/>
 
             </LinearLayout>
 

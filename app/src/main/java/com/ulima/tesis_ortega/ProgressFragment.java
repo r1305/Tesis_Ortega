@@ -74,7 +74,6 @@ public class ProgressFragment extends Fragment {
 
         graph.getLegendRenderer().setVisible(true);
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
-
         return v;
     }
 

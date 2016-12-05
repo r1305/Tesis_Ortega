@@ -71,7 +71,7 @@ public class RetosRecyclerAdapter extends RecyclerView.Adapter<RetosRecyclerAdap
             super(itemView);
             act=(TextView)itemView.findViewById(R.id.item_act);
             tiempo=(TextView)itemView.findViewById(R.id.item_tiempo);
-            img=(ImageView)itemView.findViewById(R.id.item_img);
+//            img=(ImageView)itemView.findViewById(R.id.item_img);
 
         }
     }
